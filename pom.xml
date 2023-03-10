@@ -6,7 +6,7 @@
 
   <groupId>com.tufitko</groupId>
   <artifactId>kafka-fs-jca</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>current</version>
 
   <name>kafka-fs-jca</name>
   <!-- FIXME change it to the project's website -->
