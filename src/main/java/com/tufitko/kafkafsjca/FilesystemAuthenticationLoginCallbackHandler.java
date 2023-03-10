@@ -86,16 +86,12 @@ public class FilesystemAuthenticationLoginCallbackHandler implements Authenticat
     List<String> lines = Files.asCharSource(file, Charsets.UTF_8).readLines();
 
     for (int i = 0; i < lines.size(); i++) {
-      log.info("got: username={} pass={}, check: {}", username, password, lines.get(i));
-
       List<String> tokens = Splitter.on(":").trimResults().omitEmptyStrings().splitToList(lines.get(i));
       if (tokens.size() != 2) {
         continue;
       }
-
-      log.info("got: username={} pass={}, check: username={}, password={}", username, password, tokens.get(0).equals(username), Arrays.equals(tokens.get(1).toCharArray(), password));
-
       if (tokens.get(0).equals(username) && Arrays.equals(tokens.get(1).toCharArray(), password)) {
+        log.info("authorize {}", username);
         return true;
       }
     }
